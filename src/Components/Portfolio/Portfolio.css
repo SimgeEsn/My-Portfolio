@@ -1,0 +1,171 @@
+/* Genel Ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Portfolyo Bölümü */
+.portfolio-section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 6rem 1rem 4rem;
+  background: linear-gradient(135deg, #1c1c1c 0%, #3d1b2f 100%);
+  background-size: 200% 200%;
+  animation: bgMove 10s ease infinite;
+  color: #fff;
+  scroll-margin-top: 80px;
+  position: relative; /* Arka plan deseni için */
+}
+
+/* Arka plana hafif bir desen/gürültü efekti */
+.portfolio-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 0h3v3H0V0zm3 3h3v3H3V3z"/%3E%3C/g%3E%3C/svg%3E'); /* Çok hafif bir desen */
+  opacity: 0.1; /* Opaklık ayarı */
+  pointer-events: none; /* Etkileşimi engeller */
+  z-index: 1; /* İçeriğin altında kalmasını sağlar */
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.portfolio-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Eğer portfolyo bölümünün ana başlığı varsa, buraya ekleyebilirsiniz */
+.portfolio-section-title { /* Yeni eklendi, eğer kullanacaksanız HTML'de ekleyin */
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  color: #f8d7ff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(240, 201, 221, 0.4);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.portfolio-card {
+  background: rgba(30, 30, 45, 0.85); /* Arka plan rengi güncellendi */
+  padding: 2.8rem 2rem; /* Padding ayarlandı */
+  border-radius: 32px; /* Border radius güncellendi */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(196, 69, 137, 0.15); /* Gölge ve iç gölge eklendi */
+  transition: all 0.5s ease; /* Geçiş süresi güncellendi */
+  text-align: center;
+  backdrop-filter: blur(10px); /* Blur ayarlandı */
+  position: relative; /* Z-index için */
+  z-index: 10; /* İçeriğin diğer öğelerin üzerinde olması için */
+  border: 1px solid rgba(196, 69, 137, 0.3); /* Çerçeve ayarlandı */
+}
+
+.portfolio-card:hover {
+  transform: translateY(-3px); /* Üzerine gelince hafifçe yukarı kayma */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(196, 69, 137, 0.25); /* Hover gölge ayarlandı */
+}
+
+.project-category {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8d7ff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Metin gölgesi eklendi */
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  border: 2px solid #c44589; /* Mevcut border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Resme hafif gölge */
+}
+
+.project-description {
+  font-size: 1.05rem;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #64214b 0%, #c40e4a 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Geçişler eklendi */
+  box-shadow: 0 4px 15px rgba(185, 71, 109, 0.3); /* Butona gölge */
+}
+
+.project-link:hover {
+  background: linear-gradient(90deg, #c40e4a 0%, #64214b 100%);
+  transform: translateY(-2px); /* Üzerine gelince hafif yukarı kayma */
+  box-shadow: 0 6px 20px rgba(185, 71, 109, 0.5); /* Hover gölge */
+}
+
+/* Responsive */
+@media (max-width: 767px) { /* 767px ve altı için 1 sütun */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card {
+    padding: 2rem 1.5rem; /* Mobil padding ayarlandı */
+  }
+
+  .project-title {
+    font-size: 1.4rem; /* Mobil için ayarlandı */
+  }
+
+  .project-description {
+    font-size: 0.95rem; /* Mobil için ayarlandı */
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

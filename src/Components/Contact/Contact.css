@@ -1,0 +1,149 @@
+/* Genel Ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.contact-section {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #1c1c1c 0%, #3d1b2f 100%);
+  background-size: 200% 200%;
+  animation: bgMove 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-margin-top: 80px;
+  padding: 5rem 1rem 4rem;
+  position: relative; /* Arka plan deseni için */
+}
+
+/* Arka plana hafif bir desen/gürültü efekti */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 0h3v3H0V0zm3 3h3v3H3V3z"/%3E%3C/g%3E%3C/svg%3E'); /* Çok hafif bir desen */
+  opacity: 0.1; /* Opaklık ayarı */
+  pointer-events: none; /* Etkileşimi engeller */
+  z-index: 1; /* İçeriğin altında kalmasını sağlar */
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.contact-content {
+  background: rgba(30, 30, 45, 0.85); /* Arka plan rengi güncellendi */
+  border-radius: 32px; /* Border radius güncellendi */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(196, 69, 137, 0.15); /* Gölge ve iç gölge eklendi */
+  backdrop-filter: blur(10px); /* Blur ayarlandı */
+  padding: 3.5rem 2.5rem; /* Padding ayarlandı */
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  position: relative; /* Z-index için */
+  z-index: 10; /* İçeriğin diğer öğelerin üzerinde olması için */
+  border: 1px solid rgba(196, 69, 137, 0.3); /* Çerçeve ayarlandı */
+  transition: all 0.5s ease; /* Hover efekti için geçiş */
+}
+
+.contact-content:hover {
+  transform: translateY(-3px); /* Üzerine gelince hafifçe yukarı kayma */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(196, 69, 137, 0.25); /* Hover gölge ayarlandı */
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f8d7ff;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(240, 201, 221, 0.4); /* Metin gölgesi eklendi */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 16px;
+  background: #2e2e3e;
+  color: #fff;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: #3a3a50;
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, #64214b 0%, #c40e4a 100%);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Geçişler eklendi */
+  box-shadow: 0 4px 15px rgba(185, 71, 109, 0.3); /* Butona gölge */
+}
+
+.contact-form button:hover {
+  background: linear-gradient(90deg, #c40e4a 0%, #64214b 100%);
+  color: #f8d7ff; /* Üzerine gelince yazı rengi */
+  transform: translateY(-2px); /* Üzerine gelince hafif yukarı kayma */
+  box-shadow: 0 6px 20px rgba(185, 71, 109, 0.5); /* Hover gölge */
+}
+
+.contact-form button:active {
+  background: #3d1b2f; /* Tıklanırken arka plan rengi */
+  color: #f0c9dd; /* Tıklanırken yazı rengi */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .contact-content {
+    padding: 2.5rem 1.5rem; /* Mobil padding ayarlandı */
+  }
+}

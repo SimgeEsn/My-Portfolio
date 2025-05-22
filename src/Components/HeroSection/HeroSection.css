@@ -1,0 +1,257 @@
+/* Hero Section Genel Ayarlar */
+.hero-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1c1c1c 0%, #3d1b2f 100%);
+  background-size: 200% 200%;
+  animation: bgMove 10s ease infinite;
+  color: #fff;
+  overflow: hidden;
+  padding: 4.80rem 1rem 4rem;
+  scroll-margin-top: 100px;
+  position: relative; /* Animasyonlar ve potansiyel parçacıklar için */
+}
+
+/* Arka plana hafif bir desen/gürültü efekti */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 0h3v3H0V0zm3 3h3v3H3V3z"/%3E%3C/g%3E%3C/svg%3E'); /* Çok hafif bir desen */
+  opacity: 0.1; /* Opaklık ayarı */
+  pointer-events: none; /* Etkileşimi engeller */
+  z-index: 1; /* İçeriğin altında kalmasını sağlar */
+}
+
+
+/* Arka plan hareketi */
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* İçerik kutusu */
+.hero-content {
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  padding: 3.5rem 2.5rem; /* Padding küçültüldü */
+  background: rgba(30, 30, 45, 0.85);
+  border-radius: 32px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(196, 69, 137, 0.15); /* Gölge ayarlandı */
+  backdrop-filter: blur(10px); /* Blur ayarlandı */
+  position: relative;
+  z-index: 10; /* İçeriğin diğer öğelerin üzerinde olması için */
+  border: 1px solid rgba(196, 69, 137, 0.3); /* Çerçeve ayarlandı */
+  transition: all 0.5s ease; /* Hover efekti için geçiş */
+}
+
+.hero-content:hover {
+  transform: translateY(-3px); /* Üzerine gelince hafifçe yukarı kayma ayarlandı */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(196, 69, 137, 0.25);
+}
+
+/* Üst başlık */
+.hero-subtitle {
+  font-size: 1.1rem; /* Boyut küçültüldü */
+  color: rgba(196, 69, 137, 0.8); /* Renk biraz soluklaştırıldı */
+  margin-bottom: 0.7rem; /* Boşluk azaltıldı */
+  font-weight: 500; /* Ağırlık azaltıldı */
+  letter-spacing: 2.2px; /* Harf aralığı ayarlandı */
+  text-transform: uppercase;
+  opacity: 0; /* Animasyon için başlangıç opaklığı */
+  animation: fadeIn 1s ease-out forwards; /* Animasyon eklendi */
+  animation-delay: 0.2s;
+}
+
+/* Ana başlık */
+.hero-title {
+  font-size: 3.2rem; /* Boyut küçültüldü */
+  font-weight: 800;
+  margin-bottom: 0.8rem; /* Boşluk azaltıldı */
+  color: #f0c9dd;
+  letter-spacing: 1.8px; /* Harf aralığı ayarlandı */
+  text-shadow: 0 0 12px rgba(240, 201, 221, 0.4); /* Hafif metin gölgesi */
+  opacity: 0; /* Animasyon için başlangıç opaklığı */
+  animation: fadeInScale 1s ease-out forwards; /* Animasyon eklendi */
+  animation-delay: 0.4s;
+}
+
+/* Rol */
+.hero-role {
+  font-size: 1.6rem; /* Boyut küçültüldü */
+  font-weight: 700; /* Ağırlık artırıldı */
+  color: #c44589;
+  margin-bottom: 1.5rem; /* Boşluk azaltıldı */
+  opacity: 0; /* Animasyon için başlangıç opaklığı */
+  animation: slideUp 1s ease-out forwards; /* Animasyon eklendi */
+  animation-delay: 0.6s;
+}
+
+/* Açıklama */
+.hero-description {
+  color: #e4e4e4;
+  font-size: 1.1rem; /* Boyut küçültüldü */
+  line-height: 1.7; /* Satır yüksekliği ayarlandı */
+  margin-bottom: 2.5rem; /* Boşluk azaltıldı */
+  opacity: 0; /* Animasyon için başlangıç opaklığı */
+  animation: fadeIn 1s ease-out forwards; /* Animasyon eklendi */
+  animation-delay: 0.8s;
+}
+
+/* Sosyal ikonlar container */
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem; /* Boşluk küçültüldü */
+  margin-bottom: 2.5rem; /* Boşluk küçültüldü */
+}
+
+/* Sosyal ikonlar */
+.hero-social-icon {
+  color: #c44589;
+  font-size: 2rem; /* Boyut küçültüldü */
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.hero-social-icon:hover {
+  color: #f0c9dd;
+  transform: scale(1.2) translateY(-3px) rotate(3deg); /* Transform ayarlandı */
+  text-shadow: 0 0 10px #8e2c54; /* Gölge ayarlandı */
+}
+
+/* Pasif ikonlar */
+.disabled-icon {
+  pointer-events: none; /* Tıklanabilirliği kaldırır */
+  cursor: default; /* İmleci varsayılan yapar */
+}
+
+/* Buton */
+.hero-button {
+  background: linear-gradient(90deg, #64214b 0%, #c40e4a 100%);
+  color: #fff;
+  padding: 1rem 2.5rem; /* Padding küçültüldü */
+  border-radius: 32px;
+  font-weight: 700;
+  font-size: 1.1rem; /* Boyut küçültüldü */
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(185, 71, 109, 0.5); /* Gölge ayarlandı */
+  display: inline-block;
+  letter-spacing: 0.8px; /* Harf aralığı ayarlandı */
+  position: relative;
+  overflow: hidden; /* Hover efekti için */
+  z-index: 1;
+}
+
+.hero-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent); /* Parlama ayarlandı */
+  transition: all 0.5s ease; /* Geçiş süresi ayarlandı */
+  z-index: -1;
+}
+
+.hero-button:hover::before {
+  left: 100%;
+}
+
+.hero-button:hover {
+  background: linear-gradient(90deg, #c40e4a 0%, #64214b 100%);
+  transform: translateY(-3px); /* Daha belirgin transform ayarlandı */
+  box-shadow: 0 15px 40px rgba(185, 71, 109, 0.7); /* Gölge ayarlandı */
+}
+
+/* Yeni Animasyonlar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem; /* Mobil için ayarlandı */
+  }
+
+  .hero-role {
+    font-size: 1.3rem; /* Mobil için ayarlandı */
+  }
+
+  .hero-description {
+    font-size: 1rem; /* Mobil için ayarlandı */
+  }
+
+  .hero-button {
+    font-size: 0.95rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .hero-social-icon {
+    font-size: 1.6rem;
+  }
+
+  .hero-content {
+    padding: 2.5rem 1.2rem; /* Mobil padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-role {
+    font-size: 1.1rem;
+  }
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  .hero-button {
+    font-size: 0.85rem;
+    padding: 0.7rem 1.6rem;
+  }
+}
